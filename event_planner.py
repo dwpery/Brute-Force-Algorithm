@@ -8,9 +8,17 @@ class Activity:
 activities_list = []
 
 def process_input_data(filename):
+    # Extracts data from input files
     f = open(filename)
     lines = f.readlines()
-
     f.close()
+
+    # Converts plain txt into useable objects 
+    num_of_activities = int(lines[0].strip())
+    for i in range(2, (num_of_activities + 2)):
+        attributes = lines[i].strip().split()
+        new_activity = Activity(attributes[0], attributes[1], attributes[2], attributes[3])
+        activities_list.append(new_activity)
+                   
 
 # def brute_force_search:
