@@ -1,4 +1,4 @@
-import intertools
+import itertools
 
 class Activity:
     def __init__(self, name, time, cost, enjoyment):
@@ -26,9 +26,23 @@ def process_input_data(filename):
                    
 def brute_force_search(activities, time_limit):
     best_combination = []
-    highest_enjoyment = 0
+    best_enjoyment = 0
 
     for size in range(1, len(activities) + 1):
+        for subset in itertools.combinations(activities, size):
+            temp_time = 0
+            temp_enjoyment = 0
 
+            # Calculates the total time and enjoyment
+            for activity in subset:
+                temp_time += activity.time
+                temp_enjoyment += activity.enjoyment
 
-# def results
+            # Checks comnination doesnt run over for time
+            if temp_time <= time_limit:
+                # 
+                if temp_enjoyment >= best_enjoyment:
+                    best_combination = subset
+                    best_enjoyment = temp_enjoyment
+
+    return best_combination, best_enjoyment
