@@ -58,7 +58,7 @@ def brute_force_search(activities, time_limit):
 
 if __name__ == "__main__":
     # Extracts data from chosen input file
-    filename = "input_large.txt"
+    filename = "input_medium.txt"
     activities_list, time_limit, budget_limit = process_input_data(filename)
 
     # Performs brute force and calculates execution time
@@ -91,4 +91,4 @@ if __name__ == "__main__":
     print(f"Total Time Used: {total_time}")
     print(f"Total Cost: {total_cost}")
 
-    print(f"\nExecution Time: {execution_time} seconds")
+    print(f"\nExecution Time: {execution_time:.5f} seconds")
