@@ -8,12 +8,17 @@ class Activity:
         self.enjoyment = enjoyment
 
 activities_list = []
+time_limit = 0
 
 def process_input_data(filename):
     # Extracts data from input files
     f = open(filename)
     lines = f.readlines()
     f.close()
+
+    # Extracts time limit from file
+    constraints = lines[1].strip().split()
+    time_limit = int(constraints[0])
 
     # Converts plain txt into useable objects 
     num_of_activities = int(lines[0].strip())
@@ -46,3 +51,6 @@ def brute_force_search(activities, time_limit):
                     best_enjoyment = temp_enjoyment
 
     return best_combination, best_enjoyment
+
+if __name__ == "__main__":
+    filename = "input_small.txt"
