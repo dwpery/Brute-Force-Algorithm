@@ -38,6 +38,7 @@ def brute_force_search(activities, time_limit):
     best_combination = []
     best_enjoyment = 0
 
+    # Evaluates every possible subset to find best combination
     for size in range(1, len(activities) + 1):
         for subset in itertools.combinations(activities, size):
             temp_time = 0
@@ -56,7 +57,7 @@ def brute_force_search(activities, time_limit):
     return best_combination, best_enjoyment
 
 if __name__ == "__main__":
-    # Change file name 
+    # Extracts data from chosen input file
     filename = "input_large.txt"
     activities_list, time_limit, budget_limit = process_input_data(filename)
 
@@ -76,6 +77,7 @@ if __name__ == "__main__":
 
     print(f"\n--- Brute Force Algorithm ---\nSelected Activities:")
 
+    # Prints the result of the brute force search and totals attributes so they can be printed
     total_time = 0
     total_cost = 0
     total_enjoyment = 0
