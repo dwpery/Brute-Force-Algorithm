@@ -48,17 +48,15 @@ def brute_force_search(activities, time_limit):
                 temp_time += activity.time
                 temp_enjoyment += activity.enjoyment
 
-            # Checks comnination doesnt run over for time
-            if temp_time <= time_limit:
-                # 
-                if temp_enjoyment >= best_enjoyment:
+            # Finds a best combo that doesnt run over time and has high enjoyment
+            if temp_time <= time_limit and temp_enjoyment >= best_enjoyment:
                     best_combination = subset
                     best_enjoyment = temp_enjoyment
 
     return best_combination, best_enjoyment
 
 if __name__ == "__main__":
-    # 
+    # Change file name 
     filename = "input_large.txt"
     activities_list, time_limit, budget_limit = process_input_data(filename)
 
